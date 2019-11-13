@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def create
-   #Builder
+   @orders
     rescue => e
       flash[:alert] = e.message
       redirect_to :back

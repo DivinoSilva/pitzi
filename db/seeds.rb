@@ -6,4 +6,4 @@ LOYALTYS= {
   'E': 0
 }
 
-LOYALTYS.each{ |k,v| Loyalty.create(score: k, rate: v) }
+LOYALTYS.each{ |k,v| LoyaltyPlan.create(score: k, rate: v) }

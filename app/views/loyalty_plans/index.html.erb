@@ -4,7 +4,7 @@
     <div class="block-header bg-gray-lighter">
       <div class="col-sm-12">
         <div class="col-sm-6">
-          <h3 class="block-title ">Planos oferecidos </h3>
+          <h3 class="block-title ">Desconto fidelidade</h3>
         </div>
         <div class="col-sm-6">
           <button class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#offer-form" type="button"><i class="fa fa-plus"></i></button>
@@ -15,19 +15,20 @@
       <table class="table table-borderless table-striped table-vcenter">
         <thead>
           <tr>
-            <th class="text-center">Valor anual</th>
+            <th class="text-center">Score</th>
+            <th class="text-center">Desconto</th>
+
           </tr>
         </thead>
         <tbody>
-          <% @offers.each do |offer | %>
+          <% @loyalty_plans.each do |loyalty_plan| %>
             <tr>
-              <td class="text-center"> <%= offer.id %> </td>
-              <td class="text-center"> <%= offer.annual_value %> </td>
+              <td class="text-center"> <%= loyalty_plan.score %> </td>
+              <td class="text-center"> <%= loyalty_plan.rate %> </td>
             </tr>
-          <% end if @offers %>
+          <% end if @loyalty_plans  %>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-<%= render 'modal_block' %>

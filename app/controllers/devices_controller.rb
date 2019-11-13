@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   def index
-    @devices = Device.all
+    @devices = Device.all.order(:id)
   rescue => e
     flash[:alert] = e.message
     redirect_to :back

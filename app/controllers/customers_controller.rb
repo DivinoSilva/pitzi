@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    @items = Customer.all
+    @customer = Customer.all
   rescue => e
     flash[:alert] = e.message
     redirect_to :back

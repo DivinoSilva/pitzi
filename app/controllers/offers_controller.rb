@@ -1,4 +1,4 @@
-class OfferssController < ApplicationController
+class OffersController < ApplicationController
   def index
     @offers = Offer.all.order(:id)
   rescue => e
