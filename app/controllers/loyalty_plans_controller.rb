@@ -3,6 +3,6 @@ class LoyaltyPlansController < ApplicationController
     @loyalty_plans = LoyaltyPlan.all.order(:id)
   rescue => e
     flash[:alert] = e.message
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 end

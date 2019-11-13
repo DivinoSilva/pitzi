@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   def create
    @orders
-    rescue => e
-      flash[:alert] = e.message
-      redirect_to :back
+  rescue => e
+    flash[:alert] = e.message
+    redirect_back(fallback_location: root_path)
   end
 
   private
