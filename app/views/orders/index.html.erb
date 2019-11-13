@@ -1,0 +1,39 @@
+<div class="content content-boxed">
+  <div class="block">
+    <div class="block-header bg-gray-lighter">
+      <div class="col-sm-12">
+        <div class="col-sm-6">
+          <h3 class="block-title ">Planos</h3>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#order-form" type="button"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="block-content">
+      <table class="table table-borderless table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">Cliente</th>
+            <th class="text-center">Aparelho</th>
+            <th class="text-center">Plano</th>
+            <th class="text-center">Parcelas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders_presenter.each do |order| %>
+            <tr>
+            <td class="text-center"> <%= order.id %> </td>
+            <td class="text-center"> <%= order.id %> </td>
+            <td class="text-center"> <%= order.id %> </td>
+            <td class="text-center"> <%= order.id %> </td>
+            <td class="text-center"> <%= order.id %> </td>
+            </tr>
+          <% end if @orders_presenter %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render 'modal_block' %>

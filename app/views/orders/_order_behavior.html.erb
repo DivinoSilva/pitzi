@@ -1,0 +1,31 @@
+<script>
+  $("#btn-add-item").on("click", function(){
+    if ($(".icon-add-item").hasClass("fa-plus")) {
+      $(".item-form").removeClass("hide")
+      $(".item-select").addClass("hide")
+      $(".icon-add-item").removeClass("fa-plus")
+      $(".icon-add-item").addClass("fa-minus")
+    } else {
+      $(".item-form").addClass("hide")
+      $(".item-select").removeClass("hide")
+      $(".icon-add-item").addClass("fa-plus")
+      $(".icon-add-item").removeClass("fa-minus")
+    }
+  });
+
+  $(".btn-add-order").on("click", function(){
+    if (fieldsIsNotOk()) {
+      alert("Você deve selecionar já cadastrado ou adiconar um novo ítem");
+    } else {
+      $(".add-order-form").submit()
+    }
+  });
+
+  function fieldsIsNotOk() {
+    if ($("#item-select").val() != "") {
+      return false
+    }else {
+      return $("#name").val() == "" || $("#description").val() == ""
+    }
+  }
+</script>

@@ -1,0 +1,36 @@
+
+<div class="content content-boxed">
+  <div class="block">
+    <div class="block-header bg-gray-lighter">
+      <div class="col-sm-12">
+        <div class="col-sm-6">
+          <h3 class="block-title ">Itens</h3>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#customer-form" type="button"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="block-content">
+      <table class="table table-borderless table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">CPF</th>
+            <th class="text-center">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.each do |customer| %>
+            <tr>
+              <td class="text-center"> <%= customer.name %> </td>
+              <td class="text-center"> <%= customer.document %> </td>
+              <td class="text-center"> <%= customer.email %> </td>
+            </tr>
+          <% end if @customer %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render 'modal_block' %>

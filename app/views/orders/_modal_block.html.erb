@@ -1,0 +1,46 @@
+
+<div class="modal" id="order-form">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <%= form_tag orders_path, method: :post, class: 'add-order-form form-horizontal' do %>
+          <div class="form-group">
+            <div class='col-sm-6'>
+              <%= label_tag :size, 'Item' %>
+            </div>
+            <div class='col-sm-6'>
+              <button class="btn btn-sm btn-primary pull-right" type="button" id="btn-add-item" ><i class="icon-add-item fa fa-plus"></i></button>
+            </div>
+            <div class='item-form hide'>
+              <div class="col-sm-12">
+                <%= label_tag :name, 'Nome'%>
+                <%= text_field_tag :name, '', class: 'form-control', placeholder: 'Digite o nome do item' %>
+              </div>
+              <div class="col-sm-12">
+                <%= label_tag :description, 'Descrição'%>
+                <%= text_field_tag :description, '', class: 'form-control', placeholder: 'Descreva o ítem' %>
+              </div>
+            </div> 
+            <div class="item-select col-sm-12">
+              <%= select_tag :item_id, options_for_item_select, class: 'form-control', id: 'item-select', include_blank: '' %>
+            </div>
+            <div class="col-sm-12">
+              <%= label_tag :size, 'Tamanho' %>
+              <%= select_tag :size_id, options_for_size_select, class: 'form-control', id: 'size-select', required: true, include_blank: '' %>
+            </div>
+            <div class="col-sm-12">
+              <%= label_tag :color, 'Cor' %>
+              <%= select_tag :color_id, options_for_color_select, class: 'form-control', id: 'color-select', required: true, include_blank: '' %>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-primary btn-add-order pull-right" type="button" id="btn-add-item" >Salvar</i></button>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'order_behavior' %>

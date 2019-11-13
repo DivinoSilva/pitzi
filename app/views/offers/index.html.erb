@@ -1,0 +1,33 @@
+
+<div class="content content-boxed">
+  <div class="block">
+    <div class="block-header bg-gray-lighter">
+      <div class="col-sm-12">
+        <div class="col-sm-6">
+          <h3 class="block-title ">Planos</h3>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#offer-form" type="button"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="block-content">
+      <table class="table table-borderless table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th class="text-center">Valor anual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @offers.each do |offer | %>
+            <tr>
+              <td class="text-center"> <%= offer.id %> </td>
+              <td class="text-center"> <%= offer.annual_value %> </td>
+            </tr>
+          <% end if @offers %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= render 'modal_block' %>
