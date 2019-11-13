@@ -1,2 +1,0 @@
-class Loyalty < ApplicationRecord
-end
