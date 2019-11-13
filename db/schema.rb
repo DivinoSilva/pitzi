@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20191113142201) do
   end
 
   create_table "devices", force: :cascade do |t|
-    t.integer "custumers_id"
+    t.integer "customer_id"
     t.string "manufacturer"
     t.string "model"
     t.string "imei"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["custumers_id"], name: "index_devices_on_custumers_id"
+    t.index ["customer_id"], name: "index_devices_on_customer_id"
   end
 
   create_table "loyalty_plans", force: :cascade do |t|

@@ -3,15 +3,13 @@ class OffersController < ApplicationController
     @offers = Offer.all.order(:id)
   rescue => e
     flash[:alert] = e.message
-          redirect_back(fallback_location: root_path)
-
+    redirect_back(fallback_location: root_path)
   end
 
   def create
-    Offer.create(name: params['name'])
+    Offer.create(annual_value: params['annual_value'])
 
-    edirect_back(fallback_location: root_path)
-
+    redirect_back(fallback_location: root_path)
   rescue => e
     flash[:alert] = e.message
     redirect_back(fallback_location: root_path)

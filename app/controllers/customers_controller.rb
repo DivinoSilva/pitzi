@@ -6,6 +6,10 @@ class CustomersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def show
+    render json: Customer.find_by(document: params['id'])
+  end
+
   def create
     Customer.create(item_params)
 

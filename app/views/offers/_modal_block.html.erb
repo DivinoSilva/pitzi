@@ -9,8 +9,8 @@
         <%= form_tag offers_path, method: :post, class: 'form-horizontal' do %>
           <div class="form-group">
             <div class="col-sm-12">
-              <%= label_tag :name, 'Valor Anual', class: 'col-xs-6' %>
-              <%= text_field_tag :name, '', class: 'form-control', placeholder: 'Digite o valor anual a ser cadastrado', required: true %>
+              <%= label_tag :annual_value, 'Valor Anual', class: 'col-xs-6' %>
+              <%= number_field_tag :annual_value, '', class: 'form-control', placeholder: 'Digite o valor anual a ser cadastrado', required: true %>
             </div>
           </div>
           <%= submit_tag 'Salvar', class: 'btn btn-sm btn-primary pull-right' %>

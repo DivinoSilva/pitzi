@@ -21,8 +21,7 @@
         <tbody>
           <% @offers.each do |offer | %>
             <tr>
-              <td class="text-center"> <%= offer.id %> </td>
-              <td class="text-center"> <%= offer.annual_value %> </td>
+              <td class="text-center"> <%= number_to_currency(offer.annual_value) %> </td>
             </tr>
           <% end if @offers %>
         </tbody>

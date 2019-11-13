@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def create
-   order = OrderBuilder.new()
+   order = OrderBuilder.new(orders_params)
+
+   head :ok if customer && order.save!
   rescue => e
     flash[:alert] = e.message
     redirect_back(fallback_location: root_path)
