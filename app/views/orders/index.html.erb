@@ -3,7 +3,7 @@
     <div class="block-header bg-gray-lighter">
       <div class="col-sm-12">
         <div class="col-sm-6">
-          <h3 class="block-title ">Planos</h3>
+          <h3 class="block-title ">Seguros contratados</h3>
         </div>
         <div class="col-sm-6">
           <button class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#order-form" type="button"><i class="fa fa-plus"></i></button>
@@ -14,21 +14,28 @@
       <table class="table table-borderless table-striped table-vcenter">
         <thead>
           <tr>
-            <th class="text-center">Id</th>
             <th class="text-center">Cliente</th>
-            <th class="text-center">Aparelho</th>
+            <th class="text-center">Score</th>
+            <th class="text-center">Fabricante</th>
+            <th class="text-center">Modelo</th>
+            <th class="text-center">IMEI</th>
             <th class="text-center">Plano</th>
+            <th class="text-center">Desconto</th>
+            <th class="text-center">Período</th>
             <th class="text-center">Parcelas</th>
           </tr>
         </thead>
         <tbody>
           <% @orders_presenter.each do |order| %>
             <tr>
-            <td class="text-center"> <%= order.id %> </td>
-            <td class="text-center"> <%= order.id %> </td>
-            <td class="text-center"> <%= order.id %> </td>
-            <td class="text-center"> <%= order.id %> </td>
-            <td class="text-center"> <%= order.id %> </td>
+              <td class="text-center"> <%= order.customer_name %> </td>
+              <td class="text-center"> <%= order.custumer_score %> </td>
+              <td class="text-center"> <%= order.device_manufacturer %> </td>
+              <td class="text-center"> <%= order.device_imei %> </td>
+              <td class="text-center"> <%= order.offer_annual_value %> </td>
+              <td class="text-center"> <%= order.loyalty_plan_rate %> </td>
+              <td class="text-center"> <%= order.priod %> </td>
+              <td class="text-center"> <%= order.installment %> </td>
             </tr>
           <% end if @orders_presenter %>
         </tbody>

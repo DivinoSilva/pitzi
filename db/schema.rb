@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20191113142201) do
 
   create_table "customers", force: :cascade do |t|
-    t.integer "document"
+    t.string "document"
     t.string "email"
     t.string "name"
     t.string "score"
