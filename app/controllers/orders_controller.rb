@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def create
-   @orders
+   order = OrderBuilder.new()
   rescue => e
     flash[:alert] = e.message
     redirect_back(fallback_location: root_path)
@@ -10,11 +10,14 @@ class OrdersController < ApplicationController
   
   def orders_params
     {
-      name: params[:name],
-      description: params[:description],
-      item_id: params[:item_id],
-      size_id: params[:size_id],
-      color_id: params[:color_id]
+      period: params[:period],
+      customer_id: customer.id,
+      device_id: params[:device_id],
+      offer_id: params[:offer_id]
     }
+  end
+
+  def customer
+    @customer ||= Customer.find(params['customer_id'])
   end
 end
