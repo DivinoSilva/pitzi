@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :devices, only: [:index, :create]
   resources :offers, only: [:index, :create]
   resources :orders, only: [:index, :create]
+
+  resources :customers do
+    scope module: :customers do
+      resources :devices, only: [:index]
+    end
+  end
 end

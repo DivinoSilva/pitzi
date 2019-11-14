@@ -8,6 +8,51 @@
       <div class="modal-body">
         <%= form_tag orders_path, method: :post, class: 'add-order-form form-horizontal' do %>
          
+          <div class="form-group">
+      
+            <div class="col-sm-12">
+              <%= label_tag '', 'Pesquisar cliente' %>
+              <div class="input-group">
+                <%= text_field_tag :customer, '', id: 'input-customer-document', class: 'form-control', placeholder: 'Digite o cpf do cliente', required: true %>
+                <div class="input-group-addon  btn btn-sm btn-primary"  type="button" id="btn-search-customer">
+                  <span class="fa fa-search "></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class='block'>
+                <div class="col-sm-12">
+                  <h5>Nome: <%= label_tag 'customer-name', '', class: 'customer-name' %></h5>
+                </div>
+                <div class="col-sm-12">
+                  <h5>CPF: <%= label_tag 'customer-document', '', class: 'customer-document' %></h5>
+                </div>
+                <div class="col-sm-12">
+                  <h5>Email: <%= label_tag 'customer-email', '', class: 'customer-email' %></h5>
+                </div>
+                <%= hidden_field_tag 'customer_id' %>
+                <div class="col-sm-12">
+                  <%= label_tag :device, 'Aparelho' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <%= label_tag :manufacturer, 'Fabricante', class: 'col-xs-6' %>
+              <%= text_field_tag :manufacturer, '', class: 'form-control', placeholder: 'Digite o fabricante do aparelho a ser cadastrado', required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= label_tag :model, 'Model', class: 'col-xs-6' %>
+              <%= text_field_tag :model, '', class: 'form-control', placeholder: 'Digite o modelo do aparelho a ser cadastrado', required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= label_tag :imei, 'IMEI', class: 'col-xs-6' %>
+              <%= text_field_tag :imei, '', class: 'form-control', placeholder: 'Digite o IMEI do aparelho a ser cadastrado', required: true %>
+            </div>
+          </div>
+
           <button class="btn btn-sm btn-primary btn-add-order pull-right" type="button" id="btn-add-item" >Salvar</i></button>
         <% end %>
         <div class="clearfix"></div>

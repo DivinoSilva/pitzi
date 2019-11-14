@@ -1,0 +1,19 @@
+<script>
+  $("#btn-search-customer").on("click", function() {
+    var customerDocument = $("#input-customer-document").val();
+    $.ajax({
+      url: "customers/" + customerDocument,
+      success: function(result) {
+        if (result !== null ) {
+          console.log(result);
+          $(".customer-name").text(result.name);
+          $(".customer-document").text(result.document);
+          $(".customer-email").text(result.email);
+          $("#customer_id").val(result.id);
+        }else{
+          alert("Cliente não encontrado");
+        }
+      }
+    });
+  });
+</script>

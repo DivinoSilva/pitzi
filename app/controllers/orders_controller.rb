@@ -1,8 +1,17 @@
 class OrdersController < ApplicationController
-  def create
-   order = OrderBuilder.new(orders_params)
+  def index
+    orders = Order.all.order(:id)
 
-   head :ok if customer && order.save!
+    @orders_presenter = orders.map{ |o| OrderPresenter.new(o) }
+  rescue => e
+    flash[:alert] = e.message
+    redirect_back(fallback_location: root_path)
+  end
+
+  def create
+    order = OrderBuilder.new(orders_params).build
+
+    order.save! ? (head :ok) : (head :unprocessable_entity)
   rescue => e
     flash[:alert] = e.message
     redirect_back(fallback_location: root_path)
@@ -13,13 +22,9 @@ class OrdersController < ApplicationController
   def orders_params
     {
       period: params[:period],
-      customer_id: customer.id,
+      customer_id: params[:customer_id],
       device_id: params[:device_id],
       offer_id: params[:offer_id]
     }
-  end
-
-  def customer
-    @customer ||= Customer.find(params['customer_id'])
   end
 end
