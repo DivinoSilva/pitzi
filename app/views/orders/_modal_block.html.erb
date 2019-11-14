@@ -7,9 +7,7 @@
       </div>
       <div class="modal-body">
         <%= form_tag orders_path, method: :post, class: 'add-order-form form-horizontal' do %>
-         
           <div class="form-group">
-      
             <div class="col-sm-12">
               <%= label_tag '', 'Pesquisar cliente' %>
               <div class="input-group">
@@ -19,7 +17,6 @@
                 </div>
               </div>
             </div>
-
             <div class="col-sm-12">
               <div class='block'>
                 <div class="col-sm-12">
@@ -34,11 +31,10 @@
                 <%= hidden_field_tag 'customer_id' %>
                 <div class="col-sm-12">
                   <%= label_tag :device, 'Aparelho' %>
-                  </div>
+                  <%= select_tag :device_id, '', class: 'form-control', id: 'select-device', required: true, include_blank: '' %>
                 </div>
               </div>
             </div>
-
             <div class="col-sm-12">
               <%= label_tag :size, 'Planos' %>
               <%= select_tag :offer_id, options_for_offer_select, class: 'form-control', id: 'offer-select', required: true, include_blank: '' %>
@@ -47,8 +43,9 @@
               <%= label_tag :period, 'Período' %>
               <%= number_field_tag :period, '',max:12, class: 'form-control', placeholder: 'Digite qtas vezes deseja', required: true %>
             </div>
-            <button class="btn btn-sm btn-primary btn-add-order pull-right" type="button" id="btn-add-item" >Salvar</i></button>
-          <% end %>
+          </div>
+        <%= submit_tag 'Salvar', class: 'btn btn-sm btn-primary pull-right' %>
+        <% end %>
         <div class="clearfix"></div>
       </div>
     </div>

@@ -5,7 +5,6 @@
       url: "customers/" + customerDocument,
       success: function(result) {
         if (result !== null ) {
-          console.log(result);
           $(".customer-name").text(result.name);
           $(".customer-document").text(result.document);
           $(".customer-email").text(result.email);
