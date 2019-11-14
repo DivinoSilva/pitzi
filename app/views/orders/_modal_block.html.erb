@@ -40,21 +40,15 @@
             </div>
 
             <div class="col-sm-12">
-              <%= label_tag :manufacturer, 'Fabricante', class: 'col-xs-6' %>
-              <%= text_field_tag :manufacturer, '', class: 'form-control', placeholder: 'Digite o fabricante do aparelho a ser cadastrado', required: true %>
+              <%= label_tag :size, 'Planos' %>
+              <%= select_tag :offer_id, options_for_offer_select, class: 'form-control', id: 'offer-select', required: true, include_blank: '' %>
             </div>
             <div class="col-sm-12">
-              <%= label_tag :model, 'Model', class: 'col-xs-6' %>
-              <%= text_field_tag :model, '', class: 'form-control', placeholder: 'Digite o modelo do aparelho a ser cadastrado', required: true %>
+              <%= label_tag :period, 'Período' %>
+              <%= number_field_tag :period, '',max:12, class: 'form-control', placeholder: 'Digite qtas vezes deseja', required: true %>
             </div>
-            <div class="col-sm-12">
-              <%= label_tag :imei, 'IMEI', class: 'col-xs-6' %>
-              <%= text_field_tag :imei, '', class: 'form-control', placeholder: 'Digite o IMEI do aparelho a ser cadastrado', required: true %>
-            </div>
-          </div>
-
-          <button class="btn btn-sm btn-primary btn-add-order pull-right" type="button" id="btn-add-item" >Salvar</i></button>
-        <% end %>
+            <button class="btn btn-sm btn-primary btn-add-order pull-right" type="button" id="btn-add-item" >Salvar</i></button>
+          <% end %>
         <div class="clearfix"></div>
       </div>
     </div>

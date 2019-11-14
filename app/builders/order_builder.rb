@@ -1,5 +1,4 @@
 class OrderBuilder
-  delegate :installment, to: :@order
   def initialize(attributes)
     @attributes = attributes
   end
@@ -7,8 +6,7 @@ class OrderBuilder
   def build
     return nil unless customer && device && offer
     @order = Order.new(customer: customer, device: device, offer: offer,
-              loyalty_plan: loyalty_plan, period: @attributes[:period],
-              installment: installment)
+              loyalty_plan: loyalty_plan, period: @attributes[:period] )
   end
 
   private

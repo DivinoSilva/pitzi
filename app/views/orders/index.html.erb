@@ -29,13 +29,14 @@
           <% @orders_presenter.each do |order| %>
             <tr>
               <td class="text-center"> <%= order.customer_name %> </td>
-              <td class="text-center"> <%= order.custumer_score %> </td>
+              <td class="text-center"> <%= order.customer_score %> </td>
               <td class="text-center"> <%= order.device_manufacturer %> </td>
+              <td class="text-center"> <%= order.device_model %> </td>
               <td class="text-center"> <%= order.device_imei %> </td>
-              <td class="text-center"> <%= order.offer_annual_value %> </td>
+              <td class="text-center"> <%= number_to_currency(order.offer_annual_value) %> </td>
               <td class="text-center"> <%= order.loyalty_plan_rate %> </td>
-              <td class="text-center"> <%= order.priod %> </td>
-              <td class="text-center"> <%= order.installment %> </td>
+              <td class="text-center"> <%= order.period %> </td>
+              <td class="text-center"> <%= number_to_currency(order.installment) %> </td>
             </tr>
           <% end if @orders_presenter %>
         </tbody>

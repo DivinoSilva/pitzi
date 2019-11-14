@@ -14,14 +14,14 @@ class Order < ApplicationRecord
   after_create :update_customer_score
 
   def installment
-    (offer.annual_value * (1 -loyalty_plan.rate)) / period
+    ((offer.annual_value * (1 - (loyalty_plan.rate / 100))) / period).round(2)
   end
 
   private
  
   def update_customer_score
-    total_orders = costumer.orders.count
+    total_orders = customer.orders.count
     score = ( total_orders > 3) ? 'A' : SCORES[total_orders]
-    costumer.update(score: score)
+    customer.update(score: score)
   end
 end

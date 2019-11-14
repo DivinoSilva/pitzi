@@ -7,8 +7,8 @@ class OrderPresenter
     customer.name
   end
 
-  def custumer_score
-    customer.score
+  def customer_score
+    loyalty_plan.score
   end
   
   def device_manufacturer
@@ -19,12 +19,16 @@ class OrderPresenter
     device.imei
   end
 
+  def device_model
+    device.model
+  end
+
   def offer_annual_value
-    offer.annual_value
+    offer.annual_value.round(2)
   end
 
   def loyalty_plan_rate
-    loyalty.rate
+    "#{loyalty_plan.rate.round(2)} %"
   end
 
   def period
@@ -32,7 +36,7 @@ class OrderPresenter
   end
 
   def installment
-    number_to_currency(@order.installment)
+   @order.installment
   end
 
   private
@@ -49,7 +53,7 @@ class OrderPresenter
     @offer ||= @order.offer
   end
 
-  def loyalty
-    @oloyalty ||= @order.loyalty
+  def loyalty_plan
+    @loyalty ||= @order.loyalty_plan
   end
 end

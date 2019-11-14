@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   def create
     order = OrderBuilder.new(orders_params).build
 
-    order.save! ? (head :ok) : (head :unprocessable_entity)
+    order.save! ? (redirect_back(fallback_location: root_path)) : (head :unprocessable_entity)
   rescue => e
     flash[:alert] = e.message
     redirect_back(fallback_location: root_path)
