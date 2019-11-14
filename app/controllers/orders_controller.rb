@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 
     order.save! ? (redirect_back(fallback_location: root_path)) : (head :unprocessable_entity)
   rescue => e
-    flash[:alert] = e.message
+    flash[:alert] = "Não foi possível processar sua solicitaçao. ERRO: #{e.message}"
     redirect_back(fallback_location: root_path)
   end
 
