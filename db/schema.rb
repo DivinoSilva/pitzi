@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20191113142201) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: :cascade do |t|
     t.string "document"
     t.string "email"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20191113142201) do
   end
 
   create_table "devices", force: :cascade do |t|
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.string "manufacturer"
     t.string "model"
     t.string "imei"
